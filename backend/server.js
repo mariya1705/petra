@@ -9,17 +9,15 @@ import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
+import cors from "cors";
 
 const port = process.env.PORT || 5000;
-var cors = require("cors");
-
-var app = express();
-app.use(cors());
 
 connectDB();
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
